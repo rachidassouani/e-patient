@@ -62,4 +62,13 @@ public class PatientController {
         patientService.save(patient);
         return "redirect:/";
     }
+
+    // display the form in order to create new patient
+    @GetMapping("update")
+    public String update(@RequestParam("id") long id, Model model) {
+        Patient patient = patientService.findById(id);
+        model.addAttribute("patient", patient);
+        return "patientForm";
+    }
+
 }

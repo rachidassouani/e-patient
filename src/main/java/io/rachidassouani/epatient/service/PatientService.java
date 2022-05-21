@@ -9,4 +9,5 @@ public interface PatientService {
     Page<Patient> findAll(int page, int size);
     Page<Patient> findAllByFullName(String fullName, int page, int size);
     void delete(long id);
+    Patient findById(long id);
 }
