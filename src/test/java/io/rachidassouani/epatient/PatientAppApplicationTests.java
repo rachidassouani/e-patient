@@ -1,4 +1,4 @@
-package io.rachidassouani.patientApp;
+package io.rachidassouani.epatient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

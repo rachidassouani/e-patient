@@ -1,8 +1,8 @@
-package io.rachidassouani.patientApp.controller;
+package io.rachidassouani.epatient.controller;
 
-import io.rachidassouani.patientApp.model.Patient;
-import io.rachidassouani.patientApp.service.PatientService;
-import io.rachidassouani.patientApp.util.Constant;
+import io.rachidassouani.epatient.model.Patient;
+import io.rachidassouani.epatient.service.PatientService;
+import io.rachidassouani.epatient.util.Constant;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
-package io.rachidassouani.patientApp.dao;
+package io.rachidassouani.epatient.dao;
 
-import io.rachidassouani.patientApp.model.Patient;
+import io.rachidassouani.epatient.model.Patient;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package io.rachidassouani.patientApp.service;
+package io.rachidassouani.epatient.service;
 
-import io.rachidassouani.patientApp.model.Patient;
+import io.rachidassouani.epatient.model.Patient;
 import org.springframework.data.domain.Page;
 
 public interface PatientService {

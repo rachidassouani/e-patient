@@ -1,4 +1,4 @@
-package io.rachidassouani.patientApp.model;
+package io.rachidassouani.epatient.model;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
