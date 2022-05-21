@@ -1,5 +1,7 @@
 package io.rachidassouani.patientApp.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +16,7 @@ public class Patient {
     private Long id;
     private String firstName;
     private String lastName;
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateOfBirth;
     private boolean isSick;
     private int score;

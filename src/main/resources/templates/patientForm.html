@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding new patient</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css}">
+</head>
+<body>
+    <div class="container mt-2">
+        <div class="card">
+            <div class="card-header">
+                <h3>List des patients</h3>
+            </div>
+            <div class="card-body">
+                <form method="post" th:action="@{save}" th:object="${patient}">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">firstName</label>
+                        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" >
+                        <span th:errors="${patient.firstName}"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">lastName</label>
+                        <input type="text" class="form-control" id="lastName"  th:field="*{lastName}">
+                        <span th:errors="${patient.lastName}"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="score" class="form-label">score</label>
+                        <input type="text" class="form-control" id="score"  th:field="*{score}">
+                        <span th:errors="${patient.score}"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="dateOfBirth" class="form-label">dateOfBirth</label>
+                        <input type="text" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}">
+                        <span th:errors="${patient.dateOfBirth}"></span>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="isSick" th:field="*{sick}">
+                        <label class="form-check-label" for="isSick">is sick?</label>
+                    </div>
+                    <div>
+                        <a href="/" class="btn btn-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+		 $('#dateOfBirth').datepicker({
+			 format: 'dd/mm/yyyy'
+	    });
+	})
+    </script>
+</body>
+</html>
