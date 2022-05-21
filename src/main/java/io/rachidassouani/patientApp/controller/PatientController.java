@@ -19,6 +19,12 @@ public class PatientController {
     }
 
 
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/patients";
+    }
+
+    // finding list of patients
     @GetMapping("patients")
     public String patients(Model model,
                            @RequestParam(name="page", defaultValue = "0") int page,
@@ -34,6 +40,14 @@ public class PatientController {
         return "patients";
     }
 
+    // to delete patient by his id, and display to the user the same page
+    @GetMapping("delete")
+    public String delete(@RequestParam("id") long id,
+                         @RequestParam("fullName") String fullName,
+                         @RequestParam("page") int page) {
+        patientService.delete(id);
+        return "redirect:/patients?fullName="+fullName+"&page="+page;
+    }
 
 
 }

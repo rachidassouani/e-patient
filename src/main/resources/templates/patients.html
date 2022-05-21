@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
 </head>
 <body>
 
@@ -14,7 +14,7 @@
             </div>
             <div class="card-body">
                 <form method="get" th:action="@{patients}">
-                    <label>Key word: </label>
+                    <label>First or last name of patient: </label>
                     <input type="text" name="fullName" th:value="${fullName}">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </form>
@@ -36,7 +36,7 @@
                         <td th:text="${patient.sick}"></td>
                         <td th:text="${patient.score}"></td>
                         <td>
-                            <a href="@{delete(id=${p.id})}" class="btn btn-danger">
+                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" th:href="@{delete(id=${patient.id}, fullName=${fullName}, page=${currentPage})}" class="btn btn-danger delete-link">
                                 Delete
                             </a>
                         </td>
@@ -55,6 +55,35 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="deleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" >Delete Confirmation</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span>Are you sure you want to delete this user </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="" class="btn btn-danger" id="deleteBtn">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+
+    <script type="text/javascript">
+
+			$(document).ready(function() {
+				$(".delete-link").on("click", function(e) {
+					const link = ($(this).attr("href"));
+					$("#deleteBtn").attr("href", link);
+				})
+			})
+    </script>
 </body>
 </html>

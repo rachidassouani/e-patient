@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Long> {
 
+    // searching for patients by their first or lastname
     Page<Patient> findByFirstNameOrLastNameContains(String fullName, String fullName2, Pageable pageable);
 }
