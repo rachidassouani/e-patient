@@ -60,7 +60,7 @@ public class PatientController {
     @PostMapping("save")
     public String save(Patient patient) {
         patientService.save(patient);
-        return "redirect:/";
+        return "redirect:/patients";
     }
 
     // display the form in order to create new patient
