@@ -36,7 +36,7 @@
                         <td th:text="${patient.dateOfBirth}"></td>
                         <td th:text="${patient.sick}"></td>
                         <td th:text="${patient.score}"></td>
-                        <td sec:authorize="hasRole('ADMIN')">
+                        <td sec:authorize="hasAuthority('ADMIN')">
                             <a data-bs-toggle="modal" data-bs-target="#deleteModal" th:href="@{delete(id=${patient.id}, fullName=${fullName}, page=${currentPage})}" class="btn btn-danger delete-link">
                                 Delete
                             </a>
